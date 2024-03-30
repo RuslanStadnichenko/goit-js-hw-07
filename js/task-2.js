@@ -11,7 +11,7 @@ const images = [
     url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     alt: 'Group of Horses Running',
   },
-  {
+    {
     url:
       'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     alt: 'Elephant Beside on Baby Elephant',
@@ -27,3 +27,26 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+const galleryItemImage = imageCode => {
+
+  const listImageCard = document.createElement('li');
+  listImageCard.classList.add('item-image');
+  
+  const imageElement = document.createElement('img');
+  imageElement.src = imageCode.url;
+  imageElement.alt = imageCode.alt;
+
+  listImageCard.prepend(imageElement);
+
+  return listImageCard;
+};
+
+const arrayImageCard = images.map(image => {
+  return galleryItemImage(image);
+});
+console.log(arrayImageCard);
+
+
+const collectionImageCard = document.querySelector('.gallery');
+collectionImageCard.append(...arrayImageCard);
