@@ -18,7 +18,12 @@ destroyBtn.addEventListener('click', () => {
 function createBox() {
 const inputNumber = document.querySelector('#controls input[type="number"]');
   const inputNbrValue = parseInt(inputNumber.value);
+  //  if (inputNbrValue < 1 || 100 < inputNbrValue) {
+  //   alert('Please enter a value greater than or equal to 1.');
+  //   return;
+  // }
   let initialSize = 30;
+    destroyBoxes();
   for (let i = 0; i < inputNbrValue; i++) { 
     const box = document.createElement('div');
     initialSize += 10;
